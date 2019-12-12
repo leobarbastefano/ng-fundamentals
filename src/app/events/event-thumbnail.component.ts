@@ -38,16 +38,21 @@ styles: [`
 export class EventsThumbnailComponent {
   @Input() event: any;
 
+  // to call [ngClass]="getStartTimeClass()"
   getStartTimeClass() {
     if (this.event && this.event.time === '8:00 am') {
     return 'green bold';
-    return '';
     }
-
+    return '';
     // const isEarlyStart = this.event.time === '8:00 am';
     // return {green: isEarlyStart, bold: isEarlyStart}
+  }
 
-
-
+  // to call [ngStyle]="getStartTimeStyle()"
+  getStartTimeStyle(): any {
+      if (this.event && this.event.time === '8:00 am') {
+      return {color: '#003300', 'font-weight': 'bold'};
+      }
+      return {};
   }
 }
