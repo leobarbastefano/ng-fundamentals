@@ -7,7 +7,7 @@ import { EventRouteActivator } from './events/event-detail/event-route-activator
 
 // this works like an if statement inside an array
 export const appRoutes: Routes = [
-  { path: 'events/new', component: CreateEventComponent },
+  { path: 'events/new', component: CreateEventComponent, canActivate: ['canDeactivateCreateEvent'] },
   { path: 'events', component: EventsListComponent },
   { path: 'events/:id', component: EventDetailsComponent, canActivate: [EventRouteActivator]},
   { path: '404', component: Error404Component},
