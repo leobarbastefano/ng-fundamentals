@@ -13,6 +13,7 @@ import { appRoutes } from './routes';
 import { CreateEventComponent } from './events/create-event.component';
 import { Error404Component } from './errors/404.component';
 import { EventRouteActivator } from './events/event-detail/event-route-activator.service';
+import { EventListResolver } from './events/events-list-resolver.services';
 
 @NgModule({
   imports: [
@@ -32,6 +33,7 @@ import { EventRouteActivator } from './events/event-detail/event-route-activator
     EventService,
     ToastrService,
     EventRouteActivator,
+    EventListResolver,
     {
       // to check if user didn't save form
       provide: 'canDeactivateCreateEvent',

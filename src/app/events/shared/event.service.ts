@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable()
 export class EventService {
   getEvents() {
-    return EVENTS;
+    let subject = new Subject()
+    // after 100 milisec the data will be download
+    setTimeout(() => {subject.next(EVENTS); subject.complete(); }, 1000);
+    return subject;
   }
   // to get events to event-detail
   getEvent(id: number) {
