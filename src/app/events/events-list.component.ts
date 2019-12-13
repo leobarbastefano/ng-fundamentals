@@ -5,7 +5,6 @@ import { ToastrService } from '../common/toastr.service';
 declare let toastr;
 
 @Component({
-  selector: 'events-list',
   template: `
 <div>
   <h1>Upcoming Angular Events</h1>
@@ -27,6 +26,7 @@ declare let toastr;
 export class EventsListComponent implements OnInit {
   events: any[];
 
+  // tslint:disable-next-line: no-shadowed-variable
   constructor(private eventService: EventService, private toastr: ToastrService) {
 
   }

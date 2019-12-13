@@ -4,16 +4,9 @@ import { Component } from '@angular/core';
   selector: 'app-events',
   template: `
   <nav-bar></nav-bar>
-  <events-list></events-list>
+  <router-outlet></router-outlet>
   `
-
 })
 export class EventsAppComponent {
-  title = 'app';
+  // title = 'app';
 }
-
-
-// template: `
-// <h2>Hello</h2>
-// <img src ="/assets/images/basic-shield.png"/>
-// `
