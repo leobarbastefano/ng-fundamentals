@@ -18,8 +18,8 @@ export class ProfileComponent implements OnInit {
     const lastName = new FormControl(this.authService.currentUser.lastName);
 
     this.profileForm = new FormGroup({
-      firstName: firstName,
-      lastName: lastName
+      firstName,
+      lastName
     });
   }
 
