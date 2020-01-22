@@ -17,6 +17,7 @@ import { NavBarComponent } from './nav/nav.component';
 import { ToastrService } from './common/toastr.service';
 import { appRoutes } from './routes';
 import { Error404Component } from './errors/404.component';
+import { AuthService } from './user/auth.service';
 
 @NgModule({
   imports: [
@@ -37,6 +38,7 @@ import { Error404Component } from './errors/404.component';
     ToastrService,
     EventRouteActivator,
     EventListResolver,
+    AuthService,
     {
       // to check if user didn't save form
       provide: 'canDeactivateCreateEvent',
