@@ -6,12 +6,19 @@ import { IEvent } from './event.model';
 export class EventService {
   getEvents(): Observable<IEvent[]> {
     const subject = new Subject<IEvent[]>();
-    setTimeout(() => {subject.next(EVENTS); subject.complete(); }, 1000);
+    setTimeout(() => { subject.next(EVENTS); subject.complete(); }, 1000);
     return subject;
   }
+
   // to get events to event-detail
   getEvent(id: number): IEvent {
     return EVENTS.find(event => event.id === id);
+  }
+
+  saveEvent(event) {
+    event.id = 999;
+    event.session = [];
+    EVENTS.push(event);
   }
 }
 
