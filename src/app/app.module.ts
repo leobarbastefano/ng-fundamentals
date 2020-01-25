@@ -16,13 +16,15 @@ import {
   DurationPipe
 } from './events/index';
 
-import { ToastrService } from './common/toastr.service';
+import { TOASTR_TOKEN, Toastr } from './common/toastr.service';
 import { CollapsibleWellComponent } from './common/collapsible-well.component';
 import { NavBarComponent } from './nav/nav.component';
 import { Error404Component } from './errors/404.component';
 import { appRoutes } from './routes';
 import { AuthService } from './user/auth.service';
 import { EventsAppComponent } from './events-app.component';
+
+declare let toastr: Toastr;
 
 @NgModule({
   imports: [
@@ -46,7 +48,7 @@ import { EventsAppComponent } from './events-app.component';
   ],
   providers: [
     EventService,
-    ToastrService,
+    { provide: TOASTR_TOKEN, useValue: toastr },
     EventRouteActivator,
     EventListResolver,
     AuthService,
