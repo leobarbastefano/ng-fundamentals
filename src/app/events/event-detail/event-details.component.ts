@@ -15,6 +15,8 @@ export class EventDetailsComponent {
   event: IEvent;
   addMode: boolean;
 
+  filterBy = 'all';
+
   constructor(private route: ActivatedRoute, private eventService: EventService) {
 
   }
