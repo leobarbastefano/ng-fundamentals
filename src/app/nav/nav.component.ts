@@ -21,7 +21,8 @@ export class NavBarComponent {
   foundSessions: ISession[]; // foundSessions is a collections of ISessions
 
   constructor(public auth: AuthService, private eventService: EventService) {
-
+    // how to open modal in code - "$"" is the jQuery selector
+    $('#id').modal();
   }
 
   // method
@@ -30,8 +31,8 @@ export class NavBarComponent {
     this.eventService.searchSessions(searchTerm).subscribe
     (sessions => {
       this.foundSessions = sessions;
-      console.log('nav.component.line.33');
-      console.log(this.foundSessions);
+      // console.log('nav.component.line.33');
+      // console.log(this.foundSessions);
     });
   }
 
