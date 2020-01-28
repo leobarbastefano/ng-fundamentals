@@ -13,7 +13,8 @@ import {
   EventListResolver,
   CreateSessionComponent,
   SessionListComponent,
-  DurationPipe
+  DurationPipe,
+  VoterService
 } from './events/index';
 
 import { JQ_TOKEN,
@@ -27,6 +28,7 @@ import { Error404Component } from './errors/404.component';
 import { appRoutes } from './routes';
 import { AuthService } from './user/auth.service';
 import { EventsAppComponent } from './events-app.component';
+import { UpvotedComponent } from './events/event-detail/upvoted.component';
 
 let toastr: Toastr = window['toastr'];
 let jQuery: Toastr = window['$'];
@@ -51,7 +53,8 @@ let jQuery: Toastr = window['$'];
     CollapsibleWellComponent,
     DurationPipe,
     SimpleModalComponent,
-    ModalTriggerDirective
+    ModalTriggerDirective,
+    UpvotedComponent,
   ],
   providers: [
     EventService,
@@ -60,6 +63,7 @@ let jQuery: Toastr = window['$'];
     EventRouteActivator,
     EventListResolver,
     AuthService,
+    VoterService,
     {
       // to check if user didn't save form
       provide: 'canDeactivateCreateEvent',
