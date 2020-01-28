@@ -14,7 +14,8 @@ import {
   CreateSessionComponent,
   SessionListComponent,
   DurationPipe,
-  VoterService
+  VoterService,
+  LocationValidator,
 } from './events/index';
 
 import { JQ_TOKEN,
@@ -55,6 +56,7 @@ let jQuery: Toastr = window['$'];
     SimpleModalComponent,
     ModalTriggerDirective,
     UpvotedComponent,
+    LocationValidator,
   ],
   providers: [
     EventService,
