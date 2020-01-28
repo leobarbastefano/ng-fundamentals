@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { EventService } from '../shared/event.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { IEvent, ISession } from '../shared/index';
 
 @Component({
@@ -22,11 +22,17 @@ export class EventDetailsComponent {
 
   }
 
-  // tslint:disable-next-line: use-lifecycle-interface
+  // ngOnInit() {
+  //   this.event = this.eventService.getEvent(
+  //     +this.route.snapshot.params.id
+  //   );
+  // }
+
   ngOnInit() {
-    this.event = this.eventService.getEvent(
-      +this.route.snapshot.params.id
-    );
+    this.route.params.forEach((params: Params) => {
+      this.event = this.eventService.getEvent(+params.id);
+      this.addMode = false;
+    });
   }
 
   addSession() {
@@ -34,12 +40,12 @@ export class EventDetailsComponent {
   }
 
   saveNewSession(session: ISession) {
-      // this is going to retun the max session id
-      const nextId = Math.max.apply(null, this.event.sessions.map(s => s.id));
-      session.id = nextId + 1;
-      this.event.sessions.push(session); // push id to the sessions array
-      this.eventService.updateEvent(this.event);
-      this.addMode = false;
+    // this is going to retun the max session id
+    const nextId = Math.max.apply(null, this.event.sessions.map(s => s.id));
+    session.id = nextId + 1;
+    this.event.sessions.push(session); // push id to the sessions array
+    this.eventService.updateEvent(this.event);
+    this.addMode = false;
   }
 
   cancelAddSession() {

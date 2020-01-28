@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { AuthService } from '../user/auth.service';
 import { ISession } from '../events/shared/event.model';
 import { EventService } from '../events';
-import { ThrowStmt } from '@angular/compiler';
+import { JQ_TOKEN } from '../common/';
 
 @Component({
   selector: 'nav-bar',
@@ -20,7 +20,7 @@ export class NavBarComponent {
   searchTerm = '';
   foundSessions: ISession[]; // foundSessions is a collections of ISessions
 
-  constructor(public auth: AuthService, private eventService: EventService) {
+  constructor(public auth: AuthService, private eventService: EventService, @Inject(JQ_TOKEN) private $: any) {
     // how to open modal in code - "$"" is the jQuery selector
     $('#id').modal();
   }
@@ -35,5 +35,6 @@ export class NavBarComponent {
       // console.log(this.foundSessions);
     });
   }
+
 
 }
