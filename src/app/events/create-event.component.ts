@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { EventService } from './shared/index';
+import { EventService, IEvent } from './shared/index';
 
 
 @Component({
@@ -13,15 +13,18 @@ styles: [`
 export class CreateEventComponent {
   newEvent: any;
   isDirty = true;
+  imageUrl = '/assets/images/ng-conf.png';
+
   constructor(private router: Router, private eventService: EventService) {
 
   }
 
   saveEvent(formValues) {
     // console.log(formValues);
-    this.eventService.saveEvent(formValues);
-    this.isDirty = false;
-    this.router.navigate(['./events']);
+    this.eventService.saveEvent(formValues).subscribe((value: IEvent) => {
+      this.isDirty = false;
+      this.router.navigate(['/events']);
+    });
   }
 
   cancel() {
