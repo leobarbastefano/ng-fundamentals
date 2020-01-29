@@ -55,4 +55,14 @@ export class AuthService {
     // this is an observable
     return this.http.put(`/api/users/${this.currentUser.id}`, this.currentUser, options);
   }
+
+  logout() {
+    // this logs out the user in the client (angular)
+    this.currentUser = undefined;
+
+    // this logs out the user in the server (api)
+    const options = { headers: new HttpHeaders({'Content-Type': 'application/json'})};
+    return this.http.post('/api/logout', {}, options);
+  }
+
 }

@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
 import { TOASTR_TOKEN, Toastr } from '../common/toastr.service';
+import { subscribeOn } from 'rxjs/operators';
 
 @Component({
   templateUrl: './profile.component.html',
@@ -43,6 +44,12 @@ export class ProfileComponent implements OnInit {
           this.toastr.success('Profile Saved');
       });
     }
+  }
+
+  logout() {
+    this.authService.logout().subscribe(() => {
+      this.router.navigate(['/user/login']);
+    });
   }
 
   validateFirstName() {
