@@ -22,20 +22,19 @@ export class EventDetailsComponent {
 
   }
 
-  // ngOnInit() {
-  //   this.event = this.eventService.getEvent(
-  //     +this.route.snapshot.params.id
-  //   );
-  // }
-
   ngOnInit() {
-    this.route.params.forEach((params: Params) => {
-      this.event = this.eventService.getEvent(+params.id);
+    // this.route.params.forEach((params: Params) => {
+      this.route.data.forEach((data) => {
+      // this.eventService.getEvent(+params['id']).subscribe((event: IEvent) => {
+      // this.event = event;
+      // this.event = this.route.snapshot.data['event'];
+      this.event = data['event'];
       this.addMode = false;
     });
-  }
+  // });
+}
 
-  addSession() {
+addSession() {
     this.addMode = true;
   }
 

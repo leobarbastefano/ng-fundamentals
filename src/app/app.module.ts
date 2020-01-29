@@ -10,13 +10,13 @@ import {
   EventService,
   EventDetailsComponent,
   CreateEventComponent,
-  EventRouteActivator,
   EventListResolver,
   CreateSessionComponent,
   SessionListComponent,
   DurationPipe,
   VoterService,
-  LocationValidator
+  LocationValidator,
+  EventResolver
 } from './events/index';
 
 import { JQ_TOKEN,
@@ -64,10 +64,10 @@ let jQuery: Toastr = window['$'];
     EventService,
     { provide: TOASTR_TOKEN, useValue: toastr },
     { provide: JQ_TOKEN, useValue: jQuery },
-    EventRouteActivator,
     EventListResolver,
     AuthService,
     VoterService,
+    EventResolver,
     {
       // to check if user didn't save form
       provide: 'canDeactivateCreateEvent',
