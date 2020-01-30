@@ -32,8 +32,8 @@ import { AuthService } from './user/auth.service';
 import { EventsAppComponent } from './events-app.component';
 import { UpvotedComponent } from './events/event-detail/upvoted.component';
 
-let toastr: Toastr = window['toastr'];
-let jQuery: Toastr = window['$'];
+const toastr: Toastr = window['toastr'];
+const jQuery: Toastr = window['$'];
 
 @NgModule({
   imports: [
