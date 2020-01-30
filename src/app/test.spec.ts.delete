@@ -1,0 +1,10 @@
+describe('first test', () => {
+  it('should br true', () => {
+    expect(true).toBe(true);
+  });
+
+  it('should br false', () => {
+    expect(false).toBe(false);
+  });
+
+});
