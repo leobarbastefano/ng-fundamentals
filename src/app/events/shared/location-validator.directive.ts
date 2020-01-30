@@ -10,7 +10,7 @@ export class LocationValidator implements Validator {
     const addressControl = formGroup.controls.address;
     const cityControl = formGroup.controls.city;
     const countryControl = formGroup.controls.country;
-    const onlineUrlControl = (<FormGroup>formGroup.root).controls.onlineUrl;
+    const onlineUrlControl = (formGroup.root as FormGroup).controls.onlineUrl;
 
     if ((addressControl && addressControl.value &&
           cityControl && cityControl.value &&

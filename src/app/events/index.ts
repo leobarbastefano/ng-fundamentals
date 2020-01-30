@@ -6,4 +6,4 @@ export * from './shared/index';
 export * from './event-detail/index';
 export * from './shared/location-validator.directive';
 export * from './event-resolver.service';
-export * from '../nav/nav.component';
+// export * from '../nav/nav.component';

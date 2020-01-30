@@ -28,7 +28,7 @@ export class EventDetailsComponent {
       // this.eventService.getEvent(+params['id']).subscribe((event: IEvent) => {
       // this.event = event;
       // this.event = this.route.snapshot.data['event'];
-      this.event = data['event'];
+      this.event = data.event;
       this.addMode = false;
     });
   // });
